@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const typescript = require('typescript');
-const { AotPlugin } = require('@ngtools/webpack');
+const { AngularCompilerPlugin } = require('@ngtools/webpack');
 const jsonServer = require('json-server');
 
 const rules = [
@@ -24,11 +24,11 @@ const plugins = [
 
 if (process.env.NODE_ENV === 'production') {
   rules.push({
-    test: /\.ts$/,
+    test: /(?:\.ngfactory\.js|\.ngstyle\.js|\.ts)$/,
     loaders: ['@ngtools/webpack'],
   });
   plugins.push(
-    new AotPlugin({
+    new AngularCompilerPlugin({
       tsConfigPath: './tsconfig.json',
       entryModule: 'src/app/app.module#AppModule',
     }),
