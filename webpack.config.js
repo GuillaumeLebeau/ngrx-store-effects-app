@@ -69,7 +69,7 @@ if (process.env.NODE_ENV === 'production') {
   plugins.push(
     new webpack.NamedModulesPlugin(),
     new webpack.ContextReplacementPlugin(
-      /angular(\\|\/)core(\\|\/)@angular/,
+      /angular(\\|\/)core(\\|\/)(@angular|esm5)/,
       path.resolve(__dirname, './notfound')
     )
   );
@@ -93,8 +93,8 @@ module.exports = {
       warnings: false,
     },
     publicPath: '/build/',
-    port: 3000,
-    setup: function(app) {
+    port: 3333,
+    before: function(app) {
       app.use('/api', jsonServer.router('db.json'));
     },
   },
