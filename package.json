@@ -5,8 +5,7 @@
   "license": "MIT",
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack -p",
-    "build:dev":
-      "cross-env NODE_ENV=development webpack-dev-server --inline --hot",
+    "build:dev": "cross-env NODE_ENV=development webpack-dev-server --inline --hot",
     "build:production": "npm run clean && npm run build",
     "clean": "rimraf build",
     "start": "npm run build:dev",
@@ -24,6 +23,7 @@
     "angular2-template-loader": "0.6.2",
     "awesome-typescript-loader": "3.2.3",
     "chalk": "1.1.3",
+    "codelyzer": "^4.0.1",
     "cross-env": "5.0.5",
     "es6-shim": "0.35.3",
     "file-loader": "1.1.5",
@@ -43,6 +43,7 @@
     "raw-loader": "0.5.1",
     "rimraf": "2.6.2",
     "sass-loader": "6.0.6",
+    "tslint": "^5.8.0",
     "typescript": "2.6.1",
     "webpack": "3.6.0",
     "webpack-dev-server": "2.8.2"
